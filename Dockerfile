@@ -39,7 +39,8 @@ RUN (cd /home/binwalk/jefferson && python3 -m pip install -r requirements.txt --
 
 # install ubi_reader
 RUN git clone $UBI_READER_GIT /home/binwalk/ubi_reader
-RUN (cd /home/binwalk/ubi_reader && python3 setup.py install --user)
+RUN cd /home/binwalk/ubi_reader && git fetch origin refs/tags/v0.8.5-master && git checkout tags/v0.8.5-master
+RUN cd /home/binwalk/ubi_reader && python3 setup.py install --user
 
 # install yaffshiv
 RUN git clone $YAFFSHIV_GIT /home/binwalk/yaffshiv
